@@ -89,7 +89,7 @@ public class AreaCalculator {
 				shape = new Triangle(input.nextInt(),input.nextFloat());
 			}
 			else if(choice == 4){
-				System.out.println("Thank you...");
+				System.out.println("Thank you....");
 				break;
 			}
 			else {
