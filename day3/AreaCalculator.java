@@ -71,8 +71,10 @@ public class AreaCalculator {
 		Scanner input = new Scanner(System.in);
 		Shape shape;
 		int choice;
+		System.out.println("Area Calculator");
 		while(true) {
-			System.out.println("Enter the choice\n1. Circle\n2. Rectangle\n3. Triangle\n4.exit");
+			
+			System.out.print("\n1. Circle\n2. Rectangle\n3. Triangle\n4. Exit\nEnter the choice : ");
 			choice = input.nextInt();
 			if(choice == 1) {
 				System.out.print("Enter the Radius of the circle: ");
