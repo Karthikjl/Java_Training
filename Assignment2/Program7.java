@@ -1,178 +1,191 @@
 package com.celcom.Assignment2;
 
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 class Account {
-	private String name;
-	private String accountNumber;
+	private String userName;
 	private double balance;
+	private int accountNumber;
+	private int pin;
 
-	public Account(String name, String accountNumber, double balance) {
-		this.name = name;
+	Account(String userName, double amount, int accountNumber, int pin) {
+		this.userName = userName;
+		this.balance = amount;
 		this.accountNumber = accountNumber;
-		this.balance = balance;
+		this.pin = pin;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public String getAccountNumber() {
-		return accountNumber;
+	public String getUserName() {
+		return userName;
 	}
 
 	public double getBalance() {
 		return balance;
 	}
 
+	public int getAccountNumber() {
+		return accountNumber;
+	}
+
 	public void deposit(double amount) {
 		if (amount > 0) {
 			balance += amount;
 			System.out.println("Deposited: " + amount);
+			System.out.println("Total: " + balance);
 		} else {
-			System.out.println("Deposit amount must be positive.");
+			System.out.println("Amount must be in positive");
 		}
 	}
 
-	public void withdraw(double amount) {
-		if (amount > 0) {
-			if (balance >= amount) {
-				balance -= amount;
-				System.out.println("Withdrew: " + amount);
+	public void withdraw(double amount, int userPin) {
+		if (this.pin == userPin) {
+			if (amount > 0) {
+				if (balance >= amount) {
+					balance -= amount;
+					System.out.println("Withdrew: " + amount);
+					System.out.println("Balance: " + balance);
+				} else {
+					System.out.println("Insufficient Balance");
+				}
 			} else {
-				System.out.println("Insufficient balance.");
+				System.out.println("Withdrawl amount should be in positive");
 			}
 		} else {
-			System.out.println("Withdrawal amount must be positive.");
+			System.out.println("Entered a wrong pin");
 		}
 	}
 
-	public String getAccountInfo() {
-		return "Name: " + name + ", Account Number: " + accountNumber + ", Balance: " + balance;
+	public String displayDetails() {
+		return "Name: " + userName + "\n" + "Balance: " + balance + "\n" + "Account number: " + accountNumber + "\n";
 	}
 }
 
 class Bank {
-	private ArrayList<Account> accounts = new ArrayList<>();
+
+	private HashMap<Integer, Account> accounts = new HashMap<>();
 
 	public void addAccount(Account account) {
-		accounts.add(account);
+		accounts.put(account.getAccountNumber(), account);
 	}
 
-	public void removeAccount(String accountNumber) {
-		accounts.removeIf(account -> account.getAccountNumber().equals(accountNumber));
-	}
-
-	public Account getAccount(String accountNumber) {
-		for (Account account : accounts) {
-			if (account.getAccountNumber().equals(accountNumber)) {
-				return account;
-			}
+	public void removeAccount(int accountNumber) {
+		if (accounts.containsKey(accountNumber)) {
+			accounts.remove(accountNumber);
+			System.out.println("Account deleted successfully.");
+		} else {
+			System.out.println("Account not found.");
 		}
-		return null;
 	}
 
-	public void listAccounts() {
+	public Account getAccount(int accountNumber) {
+		return accounts.get(accountNumber);
+	}
+
+	public void listAccount() {
 		if (accounts.isEmpty()) {
 			System.out.println("No accounts available.");
 		} else {
-			for (Account account : accounts) {
-				System.out.println(account.getAccountInfo());
+			for (Account account : accounts.values()) { // Correct way to iterate over HashMap values
+				System.out.println(account.displayDetails());
 			}
 		}
 	}
+
 }
 
-public class Program7 {
-
-	public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);
+class Program7 {
+	public static void main(String args[]) {
+		Scanner inputScanner = new Scanner(System.in);
 		Bank bank = new Bank();
 		boolean running = true;
 
 		while (running) {
-			System.out.println("\nBank System Menu:");
+			System.out.println("Bank System\n");
 			System.out.println("1. Create Account");
 			System.out.println("2. Delete Account");
 			System.out.println("3. Deposit Money");
 			System.out.println("4. Withdraw Money");
 			System.out.println("5. View Account Details");
 			System.out.println("6. List All Accounts");
-			System.out.println("7. Exit");
+			System.out.println("7. Exit\n");
 			System.out.print("Enter your choice: ");
-			int choice = scanner.nextInt();
-			scanner.nextLine();
+			int choice = inputScanner.nextInt();
+			inputScanner.nextLine();
 
 			switch (choice) {
 			case 1:
 				System.out.print("Enter account holder's name: ");
-				String name = scanner.nextLine();
+				String name = inputScanner.nextLine();
 				System.out.print("Enter account number: ");
-				String accountNumber = scanner.nextLine();
-				System.out.print("Enter initial deposit amount: ");
-				double initialDeposit = scanner.nextDouble();
-				Account newAccount = new Account(name, accountNumber, initialDeposit);
-				bank.addAccount(newAccount);
-				System.out.println("Account created successfully.");
-				break;
+				int accountNumber = inputScanner.nextInt();
+				System.out.print("Enter Initial amount: ");
+				double initialAmount = inputScanner.nextDouble();
+				inputScanner.nextLine();
+				System.out.print("Enter pin: ");
+				int pin = inputScanner.nextInt();
 
+				Account newAccount = new Account(name, initialAmount, accountNumber, pin);
+				bank.addAccount(newAccount);
+				System.out.println("Account Created Sucessfully.");
+				break;
 			case 2:
 				System.out.print("Enter account number to delete: ");
-				String deleteAccountNumber = scanner.nextLine();
+				int deleteAccountNumber = inputScanner.nextInt();
 				bank.removeAccount(deleteAccountNumber);
-				System.out.println("Account deleted successfully.");
 				break;
-
 			case 3:
-				System.out.print("Enter account number: ");
-				String depositAccountNumber = scanner.nextLine();
+				System.out.print("Enter Account Number: ");
+				int depositAccountNumber = inputScanner.nextInt();
 				Account depositAccount = bank.getAccount(depositAccountNumber);
 				if (depositAccount != null) {
 					System.out.print("Enter amount to deposit: ");
-					double depositAmount = scanner.nextDouble();
+					double depositAmount = inputScanner.nextDouble();
 					depositAccount.deposit(depositAmount);
 				} else {
 					System.out.println("Account not found.");
 				}
 				break;
-
 			case 4:
+				System.out.print("Enter Account Number: ");
+				int withdrawAccountNumber = inputScanner.nextInt();
 
-				System.out.print("Enter account number: ");
-				String withdrawAccountNumber = scanner.nextLine();
 				Account withdrawAccount = bank.getAccount(withdrawAccountNumber);
+
 				if (withdrawAccount != null) {
+					System.out.print("Enter Pin Number: ");
+					int pinNumber = inputScanner.nextInt();
 					System.out.print("Enter amount to withdraw: ");
-					double withdrawAmount = scanner.nextDouble();
-					withdrawAccount.withdraw(withdrawAmount);
+					double withdrawAmount = inputScanner.nextDouble();
+					withdrawAccount.withdraw(withdrawAmount, pinNumber);
 				} else {
 					System.out.println("Account not found.");
 				}
 				break;
-
 			case 5:
 				System.out.print("Enter account number: ");
-				String viewAccountNumber = scanner.nextLine();
-				Account viewAccount = bank.getAccount(viewAccountNumber);
+				int accountNum = inputScanner.nextInt();
+
+				Account viewAccount = bank.getAccount(accountNum);
+
 				if (viewAccount != null) {
-					System.out.println(viewAccount.getAccountInfo());
+					System.out.println(viewAccount.displayDetails());
 				} else {
 					System.out.println("Account not found.");
 				}
 				break;
 
 			case 6:
-				bank.listAccounts();
+				bank.listAccount();
 				break;
-
 			case 7:
 				running = false;
-				System.out.println("Exiting the system.");
+				System.out.println("Exiting Bank Application");
 				break;
 
 			default:
-				System.out.println("Invalid choice. Please try again.");
+				System.out.println("Invalid Choice. Please try again.");
 			}
 		}
 
