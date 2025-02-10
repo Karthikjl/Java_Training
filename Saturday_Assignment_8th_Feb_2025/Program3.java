@@ -1,4 +1,4 @@
-package com.celcom.Assignment2;
+package com.celcom.Saturday_Assignment_8th_Feb_2025;
 
 import java.util.Scanner;
 
