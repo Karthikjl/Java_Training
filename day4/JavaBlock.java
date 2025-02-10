@@ -12,14 +12,15 @@ public class JavaBlock {
 		System.out.println("Constructor");
 	}
 
-	public String toString() {
-		return "Method";
-	}
+//	public String toString() {
+//		return "Method";
+//	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		System.out.println("Main method");
 		JavaBlock objBlock = new JavaBlock();
+//		System.out.println(objBlock.toString());
 		System.out.println(objBlock);
 	}
 

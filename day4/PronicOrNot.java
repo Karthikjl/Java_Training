@@ -28,6 +28,7 @@ public class PronicOrNot {
 		else {
 			System.out.println("Not a Pronic number");
 		}
+		input.close();
 	}
 
 }

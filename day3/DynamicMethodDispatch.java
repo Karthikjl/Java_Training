@@ -23,6 +23,7 @@ public class DynamicMethodDispatch {
 	public static void main(String[] args) {
 		Fruits fruits = new Apple();
 		fruits = new Grapes();
+		fruits = new Apple();
 		
 	}
 
