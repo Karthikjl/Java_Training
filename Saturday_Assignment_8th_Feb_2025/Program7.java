@@ -86,7 +86,7 @@ class Bank {
 		if (accounts.isEmpty()) {
 			System.out.println("No accounts available.");
 		} else {
-			for (Account account : accounts.values()) { // Correct way to iterate over HashMap values
+			for (Account account : accounts.values()) {
 				System.out.println(account.displayDetails());
 			}
 		}
@@ -179,8 +179,9 @@ class Program7 {
 				bank.listAccount();
 				break;
 			case 7:
-				running = false;
 				System.out.println("Exiting Bank Application");
+				inputScanner.close();
+				running = false;
 				break;
 
 			default:

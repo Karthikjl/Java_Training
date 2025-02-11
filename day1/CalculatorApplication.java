@@ -7,10 +7,10 @@ public class CalculatorApplication {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		char YorN = 'N';
+		Scanner input = new Scanner(System.in);
 		do {
-			Scanner input = new Scanner(System.in);
 			System.out.println("Enter Choice to preform operation");
-			System.out.println("1. Addition\n2. Subraction\n3. Multiplication\n4. Division");
+			System.out.print("1. Addition\n2. Subraction\n3. Multiplication\n4. Division\nEnter the choice: ");
 			int choice = input.nextInt();
 			int number1;
 			int number2;
@@ -41,17 +41,25 @@ public class CalculatorApplication {
 				System.out.print("Enter two number: ");
 				number1 = input.nextInt();
 				number2 = input.nextInt();
-				int div = number1 / number2;
-				System.out.println("The Divition of numbers is " + div);
+				int div = 0;
+				try {
+					div = number1 / number2;
+
+				} catch (Exception e) {
+					System.out.println("Invalid Number.");
+				}
+				System.out.println("The Division of numbers is " + div);
 				break;
 			default:
 				System.out.println("Please enter the Choice correctly.");
 				break;
 
 			}
-			System.out.println("Enter y to Continue: ");
+			System.out.print("Enter Y/y to Continue: ");
 			YorN = input.next().charAt(0);
 		} while (YorN == 'Y' || YorN == 'y');
+		input.close();
+	
 	}
 
 }

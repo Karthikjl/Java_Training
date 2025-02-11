@@ -36,6 +36,7 @@ abstract class Vehicle4 implements VehiclePlan1, VehiclePlan2 {
 	public void handleBar() {
 		System.out.println("Handbar in vechicle2");
 	}
+
 }
 
 class Car2 extends Vehicle4 {
@@ -61,7 +62,6 @@ class Car2 extends Vehicle4 {
 public class InterfaceExample2 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
 		Vehicle4 vec = new Car2();
 		vec.wheel();

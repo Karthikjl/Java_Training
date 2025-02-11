@@ -13,7 +13,7 @@ class UserInput {
 		System.out.println("Employee Id: " + EmployeeId);
 		System.out.println("Employee Name: " + EmployeeName);
 		System.out.println("Employee Salary: " + EmployeeSalary);
-
+		input.close();
 	}
 
 }

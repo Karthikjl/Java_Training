@@ -30,6 +30,7 @@ public class ArrayExample2 {
 		System.out.println("The sum of array is " + sum);
 		System.out.println("The number of even number present in an array: " + evenCount);
 		System.out.println("The number of odd number present in an array: " + oddCount);
+		input.close();
 	}
 
 }

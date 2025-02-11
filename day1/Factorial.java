@@ -16,7 +16,7 @@ public class Factorial {
 			factorial *= index;
 		}
 		System.out.print("The Factorial of " + number + " is " + factorial);
-
+		input.close();
 	}
 
 }

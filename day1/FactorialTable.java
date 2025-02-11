@@ -15,6 +15,7 @@ public class FactorialTable {
 			factorial *= index;
 			System.out.println(index+"! = "+factorial);
 		}
+		input.close();
 	}
 
 }
