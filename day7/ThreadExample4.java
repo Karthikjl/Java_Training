@@ -21,8 +21,11 @@ public class ThreadExample4 {
 		t1.setName("T1");
 		t2.setName("T2");
 		
+		
 		t1.start();
+		t1.join();
 		t2.start();
+
 
 	}
 }

@@ -57,6 +57,7 @@ public class InterThreadCommunication {
 		Writer write = new Writer(r1);
 		
 		read.start();
+//		read.join();
 		Thread.sleep(2000);
 		write.start();
 	}
