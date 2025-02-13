@@ -32,11 +32,14 @@ public class ThreadExample6 {
 
 	public static void main(String[] args) throws InterruptedException {
 		// TODO Auto-generated method stub
-		Thread t1 = new Thread(new TwoTable1());
-		Thread t2 = new Thread(new TwelveTable1());
+//		Thread t1 = new Thread(new TwoTable1());
+		TwoTable1 t1 = new TwoTable1();
+//		Thread t2 = new Thread(new TwelveTable1());
+//		t1.run();
 		t1.start();
-		t1.join();
-		t2.start();
+		t1.interrupt();
+//		t1.join();
+//		t2.start();
 		System.out.println("Main");
 
 	}
