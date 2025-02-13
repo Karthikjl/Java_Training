@@ -4,15 +4,23 @@ public class Exercise {
 
 	public static void main(String[] args) {
 		
-	
+//		single for loop patern
+//		String s = "* ";
+//		int a;
+//		
+//		Scanner in = new Scanner(System.in);
+//		a = in.nextInt();
+//		for(int i =0;i<a;i++) {
+//			System.out.println(s);
+//			s=s.concat("* ");
+//		}
+		
 		for (int i = 1; i <= 9; i++) {
-			if (i % 3 != 0) {
-				System.out.print(i + " ");
-			}
-			else {
-				System.out.print(i + " ");
+				for(int j = 1;j<=9;j++) {
+					System.out.print(j + " ");	
+				}
 				System.out.println();
-			}
+			
 		}
 
 	}

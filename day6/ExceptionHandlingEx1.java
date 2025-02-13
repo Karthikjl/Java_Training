@@ -27,16 +27,7 @@ public class ExceptionHandlingEx1 {
 //		ExceptionHandlingEx1 ex1 = (ExceptionHandlingEx1) new Object();
 
 		
-//		single for loop patern
-//		String s = "* ";
-//		int a;
-//		
-//		Scanner in = new Scanner(System.in);
-//		a = in.nextInt();
-//		for(int i =0;i<a;i++) {
-//			System.out.println(s);
-//			s=s.concat("* ");
-//		}
+
 		
 		
 		

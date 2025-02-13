@@ -5,7 +5,7 @@ import java.util.Scanner;
 class VowelException extends Exception{
 	
 	public String toString() {
-		return "Word contains vowels";
+		return "Word contains vowels.";
 	}
 }
 
