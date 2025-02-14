@@ -16,11 +16,16 @@ public class StringMethodExample2 {
 
 //		s1.chars().forEach(ch -> System.out.print((char) ch));
 		
-		String s2 = "Welcome to java";
-		String[] temp = s2.split(" ");
-		for(String val: temp) {
-			System.out.println(val);
-		}
+		String s2 = new String("Welcome to java");
+		System.out.println(s2.hashCode());
+//		String[] temp = s2.split(" ");
+//		for(String val: temp) {
+//			System.out.println(val);
+//		}
+		s2 = new String("Hi");
+		System.out.println(s2.hashCode());
+		s2 = "Helloo.. World";
+		System.out.println(s2.hashCode());
 
 	}
 

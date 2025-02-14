@@ -25,5 +25,8 @@ public class ImmutableString {
 		System.out.println(s3);
 		System.out.println(s3.capacity());
 
+		System.out.println(s2.toString().equals("Sanjay Kumar"));
+
+
 	}
 }
