@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Scanner;
 
 class SortArrayList {
-	List<Integer> list = new ArrayList<>();
+	List<Integer> list;
 
 	public SortArrayList(List<Integer> list) {
 		this.list = list;

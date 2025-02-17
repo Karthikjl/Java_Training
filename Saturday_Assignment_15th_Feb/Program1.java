@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 class ContainsElement {
-	List<Integer> list = new ArrayList<>();
+	List<Integer> list;
 
 	public ContainsElement(List<Integer> list) {
 		this.list = list;

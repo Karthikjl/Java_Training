@@ -16,9 +16,9 @@ public class Program9 {
 		for (int i = 0; i < input; i++) {
 			list.add(scanner.nextInt());
 		}
-		int i = 0;
+//		int i = 0;
 		for (int val : list) {
-			System.out.println(val + " in index " + i++);
+			System.out.println(val + " in index " + list.indexOf(val));//i++
 		}
 		scanner.close();
 
