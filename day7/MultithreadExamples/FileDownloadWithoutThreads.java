@@ -6,7 +6,7 @@ public class FileDownloadWithoutThreads {
     public static void downloadFile(String fileName) {
         try {
             System.out.println("Downloading " + fileName + "...");
-            Thread.sleep(10000); // Simulating a 2-second download
+            Thread.sleep(2000); // Simulating a 2-second download
             System.out.println(fileName + " downloaded!");
         } catch (InterruptedException e) {
             e.printStackTrace();
