@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
-
+//
 public class Program1 {
 	public static void display(List<Integer> list) {
 		for (int val : list) {

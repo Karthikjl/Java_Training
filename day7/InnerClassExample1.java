@@ -1,6 +1,6 @@
 package com.celcom.day7;
 
-//Inner Class
+//Inner Class//
 public class InnerClassExample1 {
 	// Non-Static Class
 	class InnerClass {
