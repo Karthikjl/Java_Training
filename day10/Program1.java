@@ -4,11 +4,9 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
-<<<<<<< HEAD
-//
-=======
 
->>>>>>> cdebdd70e7246b64b5e9d997db24474c36e47f44
+//
+
 public class Program1 {
 	public static void display(List<Integer> list) {
 		for (int val : list) {
