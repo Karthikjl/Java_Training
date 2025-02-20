@@ -3,6 +3,7 @@ package com.celcom.Saturday_Assignment_8th_Feb_2025;
 import java.util.HashMap;
 import java.util.Scanner;
 
+//Account for user
 class Account {
 	private String userName;
 	private double balance;
@@ -28,6 +29,7 @@ class Account {
 		return accountNumber;
 	}
 
+	// deposit method
 	public void deposit(double amount) {
 		if (amount > 0) {
 			balance += amount;
@@ -38,6 +40,7 @@ class Account {
 		}
 	}
 
+	// withdraw method
 	public void withdraw(double amount, int userPin) {
 		if (this.pin == userPin) {
 			if (amount > 0) {
@@ -56,19 +59,23 @@ class Account {
 		}
 	}
 
+	// display account details
 	public String displayDetails() {
 		return "Name: " + userName + "\n" + "Balance: " + balance + "\n" + "Account number: " + accountNumber + "\n";
 	}
 }
 
+//bank
 class Bank {
 
 	private HashMap<Integer, Account> accounts = new HashMap<>();
 
+	// add Account
 	public void addAccount(Account account) {
 		accounts.put(account.getAccountNumber(), account);
 	}
 
+	// Remove account
 	public void removeAccount(int accountNumber) {
 		if (accounts.containsKey(accountNumber)) {
 			accounts.remove(accountNumber);
@@ -78,10 +85,12 @@ class Bank {
 		}
 	}
 
+	// get specific account details
 	public Account getAccount(int accountNumber) {
 		return accounts.get(accountNumber);
 	}
 
+	// list all the accounts
 	public void listAccount() {
 		if (accounts.isEmpty()) {
 			System.out.println("No accounts available.");
@@ -110,11 +119,13 @@ class Program7 {
 			System.out.println("6. List All Accounts");
 			System.out.println("7. Exit\n");
 			System.out.print("Enter your choice: ");
-			int choice = inputScanner.nextInt();
+			int choice = inputScanner.nextInt();// 5
+//			\n
 			inputScanner.nextLine();
 
 			switch (choice) {
 			case 1:
+				// adding account
 				System.out.print("Enter account holder's name: ");
 				String name = inputScanner.nextLine();
 				System.out.print("Enter account number: ");
@@ -130,11 +141,13 @@ class Program7 {
 				System.out.println("Account Created Sucessfully.");
 				break;
 			case 2:
+				// deleting account
 				System.out.print("Enter account number to delete: ");
 				int deleteAccountNumber = inputScanner.nextInt();
 				bank.removeAccount(deleteAccountNumber);
 				break;
 			case 3:
+				// deposit money from account
 				System.out.print("Enter Account Number: ");
 				int depositAccountNumber = inputScanner.nextInt();
 				Account depositAccount = bank.getAccount(depositAccountNumber);
@@ -147,6 +160,7 @@ class Program7 {
 				}
 				break;
 			case 4:
+				// withdraw money from account number
 				System.out.print("Enter Account Number: ");
 				int withdrawAccountNumber = inputScanner.nextInt();
 
@@ -163,6 +177,8 @@ class Program7 {
 				}
 				break;
 			case 5:
+
+				// view specific account
 				System.out.print("Enter account number: ");
 				int accountNum = inputScanner.nextInt();
 
@@ -176,10 +192,12 @@ class Program7 {
 				break;
 
 			case 6:
+				// view all the accounts
 				bank.listAccount();
 				break;
 			case 7:
-				System.out.println("Exiting Bank Application");
+				// exit application
+				System.out.println("Thankyou");
 				inputScanner.close();
 				running = false;
 				break;
