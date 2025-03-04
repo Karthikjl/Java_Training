@@ -1,4 +1,4 @@
-package com.multithread;
+package com.celcom.multithread;
 
 public class EmailTask implements Runnable {
     private String emailAddress;

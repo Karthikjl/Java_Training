@@ -1,4 +1,4 @@
-package com.employee.management;
+package com.celcom.employee.management;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

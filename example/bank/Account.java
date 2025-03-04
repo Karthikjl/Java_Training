@@ -1,4 +1,4 @@
-package com.example.bank;
+package com.celcom.example.bank;
 
 import java.sql.*;
 import java.util.Scanner;
@@ -143,7 +143,7 @@ class Bank {
 	}
 }
 
-// Main program to interact with the user
+
 public class Account {
 	public static void main(String args[]) {
 		Scanner inputScanner = new Scanner(System.in);

@@ -1,4 +1,4 @@
-package com.multithread;
+package com.celcom.multithread;
 
 import java.util.ArrayList;
 import java.util.List;

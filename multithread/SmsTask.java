@@ -1,4 +1,4 @@
-package com.multithread;
+package com.celcom.multithread;
 
 public class SmsTask implements Runnable {
 	private String phoneNumber;
